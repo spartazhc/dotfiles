@@ -100,6 +100,8 @@ let g:NERDTreeIndicatorMapCustom = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Map ESC to jj
+inoremap jj <Esc>
 " Set number
 set number relativenumber
 
