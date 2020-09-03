@@ -46,6 +46,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'takac/vim-hardtime'
+Plug 'junegunn/vim-peekaboo'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -58,6 +59,8 @@ call plug#end()
 " let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -> vim-peekaboo
+let g:peekaboo_prefix = "<Leader>"
 " -> vim-hardtime
 let g:hardtime_default_on = 1
 let g:hardtime_maxcount = 2
