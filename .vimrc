@@ -45,6 +45,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'takac/vim-hardtime'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -56,6 +57,13 @@ call plug#end()
 " let g:indentLine_char = '¦'
 " let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -> vim-hardtime
+let g:hardtime_default_on = 1
+let g:hardtime_maxcount = 2
+let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+"]
+let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+"]
+let g:list_of_insert_keys = []
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -> nerdcommenter
 " Add spaces after comment delimiters by default
@@ -288,6 +296,21 @@ xnoremap > >gv
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable the arrow button to make good habits
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+vnoremap <Up> <NOP>
+vnoremap <Down> <NOP>
+vnoremap <Left> <NOP>
+vnoremap <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
