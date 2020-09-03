@@ -115,6 +115,10 @@ let g:NERDTreeIndicatorMapCustom = {
 inoremap jj <Esc>
 " Set number
 set number relativenumber
+" Edit vimr configuration file
+nnoremap <Leader>ve :e $MYVIMRC<CR>
+" " Reload vimr configuration file
+nnoremap <Leader>vr :source $MYVIMRC<CR>
 
 :augroup numbertoggle
 :  autocmd!
