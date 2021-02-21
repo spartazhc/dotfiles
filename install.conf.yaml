@@ -1,0 +1,30 @@
+
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.tmux.conf: config/tmux.conf
+    ~/.vimrc: config/vimrc
+    ~/.zshrc: config/zshrc
+    ~/.p10k.zsh: config/p10k.zsh
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  -
+    command: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    stdout: true
+    stderr: true
+    description: install vim-plug
+  -
+    command: curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    stdout: true
+    stderr: true
+    description: install zplug
+  -
+    command: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    stdout: true
+    stderr: true
+    description: install tpm
