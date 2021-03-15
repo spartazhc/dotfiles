@@ -51,7 +51,7 @@ zplug load
 # User configuration
 ## plugins configuration
 # syntax-highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 if [[ "$(tput colors)" == "256" ]]; then
     ZSH_HIGHLIGHT_STYLES[default]=none
     ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=160
@@ -90,6 +90,7 @@ eval `dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.256dark`
 # Initialize completion
 autoload -Uz compinit && compinit -i
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 zmodload zsh/complist
 # use the vi navigation keys in menu completion
 bindkey -M menuselect 'h' vi-backward-char
@@ -124,6 +125,11 @@ disable r
 export STARDICT_DATA_DIR="$HOME/Nextcloud/Resources/stardict"
 export SDCV_HISTFILE="$HOME/Nextcloud/Resources/stardict/sdcv_history"
 export SDCV_HISTSIZE=10000
+
+# fix delete key binding
+bindkey -M vicmd "^[[3~" delete-char
+bindkey "^[[3~"  delete-char
+bindkey "^[3;5~" delete-char
 
 # Aliases
 source ~/.zsh/zsh_alias
