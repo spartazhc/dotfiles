@@ -29,9 +29,7 @@ zplug "plugins/colorize", from:oh-my-zsh
 zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "plugins/cp", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/github", from:oh-my-zsh
 zplug "plugins/gitignore", from:oh-my-zsh
-zplug "plugins/git-prompt", from:oh-my-zsh
 zplug "plugins/man", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
@@ -77,7 +75,7 @@ if [[ "$(tput colors)" == "256" ]]; then
 fi
 
 # zsh-autosuggestions
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 bindkey '^y' autosuggest-accept
 bindkey '^h' autosuggest-execute
 
