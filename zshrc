@@ -86,6 +86,7 @@ function zvm_after_init() {
 # zsh-vi-mode
 # export ZVM_VI_SURROUND_BINDKEY='s-prefix'
 zvm_after_init_commands+=('[ -f $ZPLUG_HOME/repos/junegunn/fzf/shell/key-bindings.zsh ] && source $ZPLUG_HOME/repos/junegunn/fzf/shell/key-bindings.zsh')
+zvm_after_init_commands+=('[ -f $ZPLUG_HOME/repos/junegunn/fzf/shell/completion.zsh ] && source $ZPLUG_HOME/repos/junegunn/fzf/shell/completion.zsh')
 # dircolors
 eval `dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.256dark`
 
