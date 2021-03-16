@@ -19,7 +19,7 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
-zplug "junegunn/fzf", use:"shell/*.zsh"
+zplug "junegunn/fzf", as:command, hook-build:"./install --bin", use:"bin/{fzf,fzf-tmux}"
 zplug "jeffreytse/zsh-vi-mode"
 zplug "seebi/dircolors-solarized"
 
