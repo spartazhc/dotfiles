@@ -76,12 +76,16 @@ fi
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-bindkey '^y' autosuggest-accept
-bindkey '^h' autosuggest-execute
+# bindkey '^@' autosuggest-accept
+# bindkey '^#' autosuggest-execute
+function zvm_after_init() {
+  zvm_bindkey viins '^@' autosuggest-accept
+  zvm_bindkey viins '^J' autosuggest-execute
+}
 
 # zsh-vi-mode
 # export ZVM_VI_SURROUND_BINDKEY='s-prefix'
-# zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+zvm_after_init_commands+=('[ -f $ZPLUG_HOME/repos/junegunn/fzf/shell/key-bindings.zsh ] && source $ZPLUG_HOME/repos/junegunn/fzf/shell/key-bindings.zsh')
 # dircolors
 eval `dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.256dark`
 
