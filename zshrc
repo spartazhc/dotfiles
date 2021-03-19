@@ -74,6 +74,31 @@ if [[ "$(tput colors)" == "256" ]]; then
     ZSH_HIGHLIGHT_STYLES[assign]=fg=037
 fi
 
+# fzf
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
+export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git'
+
+_fzf_compgen_path() {
+  fd --color=always --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -50' ;;
+    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+    ssh)          fzf "$@" --preview 'dig {}' ;;
+    *)            fzf "$@" ;;
+  esac
+}
+
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # bindkey '^@' autosuggest-accept
@@ -129,13 +154,10 @@ export STARDICT_DATA_DIR="$HOME/Nextcloud/Resources/stardict"
 export SDCV_HISTFILE="$HOME/Nextcloud/Resources/stardict/sdcv_history"
 export SDCV_HISTSIZE=10000
 
-# fix delete key binding
-bindkey -M vicmd "^[[3~" delete-char
-bindkey "^[[3~"  delete-char
-bindkey "^[3;5~" delete-char
-
 # Aliases
 source ~/.zsh/zsh_alias
+# Keybindings
+source ~/.zsh/zsh_keybindings
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
