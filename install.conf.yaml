@@ -7,6 +7,10 @@
 - clean: ['~']
 
 - link:
+    ~/.config/systemd/user/:
+      # create: true
+      glob: true
+      path: config/systemd/user/*.service
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
