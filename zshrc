@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Stop backward-kill-word on directory delimiter
+autoload -U select-word-style
+select-word-style bash
+
 # zplug config
 
 if [[ ! -d ~/.zplug ]];then
@@ -48,32 +52,6 @@ zplug load
 
 # User configuration
 ## plugins configuration
-# syntax-highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-if [[ "$(tput colors)" == "256" ]]; then
-    ZSH_HIGHLIGHT_STYLES[default]=none
-    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=160
-    ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=037,bold #,standout
-    ZSH_HIGHLIGHT_STYLES[alias]=fg=064,bold
-    ZSH_HIGHLIGHT_STYLES[builtin]=fg=064,bold
-    ZSH_HIGHLIGHT_STYLES[function]=fg=064,bold
-    ZSH_HIGHLIGHT_STYLES[command]=fg=064,bold
-    ZSH_HIGHLIGHT_STYLES[precommand]=fg=064,underline
-    ZSH_HIGHLIGHT_STYLES[commandseparator]=none
-    ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=037
-    ZSH_HIGHLIGHT_STYLES[path]=fg=166,underline
-    ZSH_HIGHLIGHT_STYLES[globbing]=fg=033
-    ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
-    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=125,bold
-    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=125,bold
-    ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-    ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=136
-    ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=136
-    ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=136
-    ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=136
-    ZSH_HIGHLIGHT_STYLES[assign]=fg=037
-fi
-
 # fzf
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git'
@@ -120,6 +98,32 @@ autoload -Uz compinit && compinit -i
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 zmodload zsh/complist
+# syntax-highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+if [[ "$(tput colors)" == "256" ]]; then
+    ZSH_HIGHLIGHT_STYLES[default]=none
+    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=160
+    ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=037,bold #,standout
+    ZSH_HIGHLIGHT_STYLES[alias]=fg=064,bold
+    ZSH_HIGHLIGHT_STYLES[builtin]=fg=064,bold
+    ZSH_HIGHLIGHT_STYLES[function]=fg=064,bold
+    ZSH_HIGHLIGHT_STYLES[command]=fg=064,bold
+    ZSH_HIGHLIGHT_STYLES[precommand]=fg=064,underline
+    ZSH_HIGHLIGHT_STYLES[commandseparator]=none
+    ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=037
+    ZSH_HIGHLIGHT_STYLES[path]=fg=166,underline
+    ZSH_HIGHLIGHT_STYLES[globbing]=fg=033
+    ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
+    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=125,bold
+    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=125,bold
+    ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+    ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=136
+    ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=136
+    ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=136
+    ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=136
+    ZSH_HIGHLIGHT_STYLES[assign]=fg=037
+fi
+
 # use the vi navigation keys in menu completion
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history

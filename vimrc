@@ -47,6 +47,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'takac/vim-hardtime'
 Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/fzf.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -57,6 +61,37 @@ call plug#end()
 " -> indentLine configure
 " let g:indentLine_char = '¦'
 " let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" -> vim-easymotion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+function! s:incsearch_config(...) abort
+	return incsearch#util#deepextend(deepcopy({
+				\   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+				\   'keymap': {
+				\     "\<CR>": '<Over>(easymotion)'
+				\   },
+				\   'is_expr': 0
+				\ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -> vim-peekaboo
