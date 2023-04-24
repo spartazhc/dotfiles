@@ -45,7 +45,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'takac/vim-hardtime'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
@@ -96,12 +95,6 @@ noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -> vim-peekaboo
 let g:peekaboo_prefix = "<Leader>"
-" -> vim-hardtime
-let g:hardtime_default_on = 1
-let g:hardtime_maxcount = 2
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+"]
-let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+"]
-let g:list_of_insert_keys = []
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " -> nerdcommenter
 " Add spaces after comment delimiters by default
