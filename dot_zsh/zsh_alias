@@ -1,0 +1,13 @@
+alias la='ls -lah --color=auto'
+alias lh='ls -lh --color=auto'
+alias ll='ls -lah --color=auto'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias sdcv="sdcv --color"
+alias tm="top -o %MEM"
+alias tp="top -o %CPU"
+alias zombies="ps aux | grep defunct"
+alias pp="pstree -s -p"
+alias scz="source $HOME/.zshrc"
+alias wpm="wpm --tag spartazhc"
+alias cmakeoptions="cmake -LA | awk '{if(f)print} /-- Cache values/{f=1}'"

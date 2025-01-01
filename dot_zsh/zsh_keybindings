@@ -1,0 +1,14 @@
+bindkey -M viins "^[[3~"  delete-char
+bindkey -M vicmd "^[[3~" delete-char
+# [Ctrl-RightArrow] - move forward one word
+bindkey -M viins '^[[1;5C' forward-word
+bindkey -M vicmd '^[[1;5C' forward-word
+# [Ctrl-LeftArrow] - move backward one word
+bindkey -M viins '^[[1;5D' backward-word
+bindkey -M vicmd '^[[1;5D' backward-word
+bindkey -M viins '^[[H' beginning-of-line                                # Home key
+bindkey -M vicmd '^[[H' beginning-of-line                                # Home key
+bindkey -M viins '^[[F' end-of-line                                      # End key
+bindkey -M vicmd '^[[F' end-of-line                                      # End key
+bindkey '^[[5~' history-beginning-search-backward               # Page up key
+bindkey '^[[6~' history-beginning-search-forward                # Page down key
