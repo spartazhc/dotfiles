@@ -1,0 +1,5 @@
+--theme="Catppuccin Mocha"
+--italic-text=always
+--pager="less --chop-long-lines --header=1 --line-num-width=0 --LONG-PROMPT --no-number-headers --RAW-CONTROL-CHARS --shift=4 --status-column --use-color --color=HGk --color=NGk"
+--style=plain
+

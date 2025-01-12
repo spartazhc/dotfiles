@@ -1,0 +1,26 @@
+[user]
+	name = {{ .name | quote }}
+	email = {{ .email | quote }}
+{{- if eq .name "spartazhc" }}
+[http]
+	proxy = http://127.0.0.1:7890
+[https]
+	proxy = http://127.0.0.1:7890
+{{- end }}
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[include]
+  path = ~/.config/delta/catppuccin.gitconfig
+[delta]
+  features = catppuccin-mocha
+  navigate = true
+  line-numbers = true
+  hyperlinks = true
+  side-by-side = true
+[merge]
+	conflictStyle = zdiff3
