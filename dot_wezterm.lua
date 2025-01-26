@@ -6,6 +6,7 @@ if wezterm.config_builder then
 end
 
 config = {
+  default_prog = { 'zellij', '-l', 'welcome' },
 	-- default_cursor_style = "SteadyBar",
 	automatically_reload_config = true,
 	window_close_confirmation = "NeverPrompt",
