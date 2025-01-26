@@ -1,0 +1,8 @@
+[".config/nvim"]
+    type = "git-repo"
+    url = "git@github.com:spartazhc/nvim_config.git"
+    refreshPeriod = "24h"
+[".config/fish"]
+    type = "git-repo"
+    url = "git@github.com:spartazhc/fish.git"
+    refreshPeriod = "24h"
